@@ -23,13 +23,13 @@ This section describes the simultaneous debugging of two cores of a Texas Instru
 ## Flash XDS100 Firmware to FTDI Chip:
  * Watch this [video](https://www.youtube.com/watch?v=vZaF5ckf3OQ) first
  * Download FT Prog [here](https://ftdichip.com/utilities/)
- * Load the configuration file for XDS100v2 programmer: `File` -> `Open template` -> [Modified template](/software/01_Control_boards/XDS100v2_UART.xml)
+ * Load the configuration file for XDS100v2 programmer: `File` -> `Open template` -> [Modified template](/debugger_configuration/XDS100v2_UART.xml)
  * Right click on `Device: 0` -> right click -> `Apply Template` -> `Template: XDS100v2_UART.xml`
  * Flash file: `Programm Devices` -> `Program`
  
 Note: 
-It is very important to click on "Apply Template" as shown in the video. Otherwise the controller will not be programmed correctly!
+It is very important to click on `Apply Template` as shown in the video. Otherwise the controller will not be programmed correctly!
 
 Note: 
 The modified file has the `Virtual COM Port` enabled to provide UART communication. This is not implemented as in the video. To enable this, see the figure. 
-![](/software/01_Control_boards/virtual_com_port.png)
+![](/documentation/virtual_com_port.png)
