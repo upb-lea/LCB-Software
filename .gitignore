@@ -9,8 +9,6 @@
 */*/.launches/
 */*/.settings/
 *.d
-*.cmd
-*.asm
 */*/device/
 
 
