@@ -9,6 +9,18 @@ For equal code indentations, perform the following steps:
  * `Project` -> `Import CCS Projects...` -> Choose your project to import
  * In `Select search-directory` browse to your project (e.g. `.../LEA_control_board/software/01_Control_boards/F28386D_GPIO/`
  * Press `Finish`
+
+## Code Composer Studio: Change C2000Ware version and compiler version
+This steps are necessary if the original project was developed with different versions for the C2000Ware and compilers. Both steps needs to be done for `RAM` and for `FLASH`. Select between both modes with the arrow at the `hammer`-symbol.
+
+### Adapt C2000ware version
+ * right click on project -> `Preferences` -> `General` -> `Products`
+ * Select `C2000Ware` and click `Edit`
+ * Select your installed C2000Ware version in the right drop-down menu
+
+### Adapt compiler version
+ * right click on project -> `Preferences` -> `General` -> `Projects`
+ * Select your installed compiler version 
  
 ## C2000 Dual-Core-Debugging
 This section describes the simultaneous debugging of two cores of a Texas Instruments C2000 DualCore processor.
