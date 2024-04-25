@@ -1,13 +1,15 @@
 //=================================================================================================
-/// @file TB_GPIO.c
+/// @file     TB_GPIO.c
 ///
-/// @brief  configurs ALL GPIOs
+/// @brief    File contains functions and varibales to configure all GPIOs according to group names
+///           as given on test board i.e Error_LEDs, PWM_LEDs, Hardware_Error_Detection and
+///           Group-A to Group-H
 ///
-/// @version
+/// @version  V1.1.0
 ///
-/// @date
+/// @date     23-04-2024
 ///
-/// @author
+/// @author   Vijay
 //=================================================================================================
 //-------------------------------------------------------------------------------------------------
 // Includes
@@ -17,9 +19,9 @@
 
 //=== Function: GpioInit_Error_LEDs ==========================================================================
 ///
-/// @brief Function initialises all Error LEDs GPIO's as outputs
+/// @brief  Function initialises all Error LEDs GPIO's as outputs
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -266,9 +268,9 @@ void GpioInit_Error_LEDs(void)
 
 //=== Function: GpioInit_GroupABCD ==========================================================================
 ///
-/// @brief Function initialises all GPIOs in GroupA to GroupD as outputs
+/// @brief  Function initialises all GPIOs in GroupA to GroupD as outputs
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -563,9 +565,9 @@ void GpioInit_GroupABCD(void)
 
 //=== Function: GpioInit_GroupEFGH ==========================================================================
 ///
-/// @brief Function initialises all GPIOs in GroupE to GroupH as outputs
+/// @brief  Function initialises all GPIOs in GroupE to GroupH as outputs
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -860,9 +862,9 @@ void GpioInit_GroupEFGH(void)
 
 //=== Function: GpioInit_Hardware_Error_Detection ==========================================================================
 ///
-/// @brief Function configures all GPIOs related to LCB's Hardware error detection
+/// @brief  Function configures all GPIOs related to LCB's Hardware error detection
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -955,9 +957,9 @@ void GpioInit_Hardware_Error_Detection(void)
 
 //=== Function: GpioInit_PWM_LEDs ==========================================================================
 ///
-/// @brief Function configures all GPIOs related to PWM_LEDs section
+/// @brief  Function configures all GPIOs related to PWM_LEDs section
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///

@@ -1,19 +1,17 @@
 //=================================================================================================
 /// @file       TB_ADC.h
 ///
-/// @brief      Datei enthält Variablen und Funktionen um die vier internen Analog-Digital-Wandler
-///							des TMS320F2838x zu nutzen. Der Code nutzt alle Module (A bis D). Die ADCs werden
-///							so konfiguriert, dass die externe 3,0 V-Referenz verwendet wird und die ADCs mit
-///							50 MHz-Takt laufen (SYSCLK = 200 MHz). Die Messung wird durch das ePWM8-Modul
-///							getriggert. Die Messeingänge sind jeweils ADCINx3 (x= A, B, C oder D). Nach dem
-///						  Ende einer Messung wird ein Interrupt ausgelöst und dort der Messwert in eine
-///							globale Variable kopiert.
+/// @brief      file contains variables and functions to use the four internal analogue-digital converters
+///             of the TMS320F2838x. The code uses all modules (A to D). The ADCs are
+///             configured so that the external 3.0 V reference is used and the ADCs run at
+///             50 MHz clock (SYSCLK = 200 MHz). The measurement is triggered by the ePWM1 module
+///             triggered. The measurement inputs are each ADCINx3 (x= A, B, C or D).
 ///
-/// @version    V1.0
+/// @version    V1.1.0
 ///
-/// @date       09.03.2023
+/// @date       23-04-2024
 ///
-/// @author     Daniel Urbaneck
+/// @author     Vijay
 //=================================================================================================
 #ifndef MYADC_H_
 #define MYADC_H_

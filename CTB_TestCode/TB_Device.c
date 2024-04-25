@@ -1,10 +1,9 @@
 //=================================================================================================
 /// @file       TB_Device.c
 ///
-/// @brief      Datei enthält Funktionen um den Mikrocontorller TMS320F2838x grundlegend zu
-///							initialisieren. Dazu wird der Watchdog-Timer ausgeschaltet, der Systemtakt
-///							eingestellt, der Flash-Speicher initialisiert und die Interrupts freigeschaltet
-///							und initialisiert.
+/// @brief      file contains functions to initialise the microcontroller TMS320F2838x.
+///             initialise it. To do this, the watchdog timer is switched off, the system clock
+///             set, the flash memory initialised and the interrupts enabled and initialised.
 ///
 /// @version    V1.2
 ///

@@ -1,13 +1,16 @@
 //=================================================================================================
-/// @file main.c
+/// @file     main.c
 ///
-/// @brief  Test code for checking all BGA solder connections of TMS320F2838xDZWT
-///         checks all pins, PWM signals, ADCs and DACs for functionality
-/// @version V1.1.0
+/// @brief    File contains: Initiatization functions for microcontroller setup.
+///           Functions to configure for all GPIOs, PWMs, DACs, and ADCs.
+///           Functions to check the Error LEDs, PWM LEDs, and GPIO LEDs (Group-A to Group-H).
+///           Functions to performs hardware error detection checks and ADC input's checks.
 ///
-/// @date
+/// @version  V1.1.0
 ///
-/// @author
+/// @date     23-04-2024
+///
+/// @author   Vijay
 //=================================================================================================
 
 //-------------------------------------------------------------------------------------------------
