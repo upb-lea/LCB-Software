@@ -1,13 +1,14 @@
 //=================================================================================================
-/// @file               TB_PWM.h
+/// @file       TB_PWM.h
 ///
-/// @brief
+/// @brief      file contains variables and functions to configure all PWM modules.
+///             PWM modules 1 to 16 are initialised.
 ///
-/// @version
+/// @version    V1.1.0
 ///
-/// @date
+/// @date       23-04-2024
 ///
-/// @author
+/// @author     Vijay
 //=================================================================================================
 #ifndef MYPWM_H_
 #define MYPWM_H_

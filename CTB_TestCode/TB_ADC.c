@@ -1,20 +1,24 @@
 //=================================================================================================
 /// @file       TB_ADC.c
 ///
-/// @brief
+/// @brief      file contains variables and functions to use the four internal analogue-digital converters
+///             of the TMS320F2838x. The code uses all modules (A to D). The ADCs are
+///             configured so that the external 3.0 V reference is used and the ADCs run at
+///             50 MHz clock (SYSCLK = 200 MHz). The measurement is triggered by the ePWM1 module
+///             triggered. The measurement inputs are each ADCINx3 (x= A, B, C or D).
 ///
-/// @version
+/// @version    V1.1.0
 ///
-/// @date
+/// @date       23-04-2024
 ///
-/// @author
+/// @author     Vijay
 //=================================================================================================
 //-------------------------------------------------------------------------------------------------
 // Includes
 //-------------------------------------------------------------------------------------------------
 #include "TB_ADC.h"
 
-//=== Function: AdcAInit ==========================================================================
+//=== Function: AdcInitAll ==========================================================================
 ///
 /// @brief  Function initialises the all ADC (module A,B,C,D)
 ///

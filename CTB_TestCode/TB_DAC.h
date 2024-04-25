@@ -1,13 +1,14 @@
 //=================================================================================================
-/// @file TB_DAC.h
+/// @file       TB_DAC.h
 ///
-/// @brief
+/// @brief      file contains variables and functions to use the internal digital-analogue converter
+///             of the TMS320F2838x. The code configures all DACs i.e DACOUTA, DACOUTB, DACOUTC
 ///
-/// @version
+/// @version    V1.1.0
 ///
-/// @date
+/// @date       23-04-2024
 ///
-/// @author
+/// @author     Vijay
 //=================================================================================================
 #ifndef MYDAC_H_
 #define MYDAC_H_

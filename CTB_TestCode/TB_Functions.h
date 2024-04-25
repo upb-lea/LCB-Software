@@ -1,13 +1,13 @@
 //=================================================================================================
-/// @file TB_Functions.h
+/// @file     TB_Functions.h
 ///
-/// @brief
+/// @brief    File contains functions for testing all GPIOs, PWMs, DACs and ADCs
 ///
-/// @version
+/// @version  V1.1.0
 ///
-/// @date
+/// @date     23-04-2024
 ///
-/// @author
+/// @author   Vijay
 //=================================================================================================
 #ifndef MYFUNCTIONS_H_
 #define MYFUNCTIONS_H_

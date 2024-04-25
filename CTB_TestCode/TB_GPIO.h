@@ -1,7 +1,8 @@
 //=================================================================================================
 /// @file TB_GPIO.c
 ///
-/// @brief
+/// @brief      File contains variables and functions around the GPIOs of the microcontroller
+///             TMS320F2838x to configure them as outputs or inputs
 ///
 /// @version
 ///

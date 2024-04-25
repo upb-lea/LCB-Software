@@ -1,13 +1,17 @@
 //=================================================================================================
-/// @file TB_Functions.c
+/// @file     TB_Functions.c
 ///
-/// @brief
+/// @brief    File contains functions and variables for testing all GPIOs, PWMs, DACs and ADCs
+///           All GPIOs and PWMs are connected to LEDs.
+///           Functions lights-ups the LEDs for visual checking of GPIOs and PWMs.
+///           Functions also generate linearly increaseing DAC values and passes it through analog MUX...
+///           finally checks for error ADC results and lights-ups the resp. Error LED if any error
 ///
-/// @version
+/// @version  V1.1.0
 ///
-/// @date
+/// @date     23-04-2024
 ///
-/// @author
+/// @author   Vijay
 //=================================================================================================
 //-------------------------------------------------------------------------------------------------
 // Includes
@@ -18,27 +22,28 @@
 // Global variables
 //-------------------------------------------------------------------------------------------------
 long double OFFTIME = 10000, ONTIME = 500000;
-uint16_t Repeat_count = 3;
-float32 ADC_error_buffer=0.96;
-uint16_t S=0,A2=0,A3=0,A4=0,A5=0,B0=0,B2=0,B3=0,B4=0,B5=0,C2=0,C3=0,C4=0,C5=0,D0=0,D1=0,D2=0,D3=0,D4=0,D5=0,IN14=0,IN15=0;
-uint16_t A2_Error_count=0,A3_Error_count=0,A4_Error_count=0,A5_Error_count=0;
-uint16_t B0_Error_count=0,B2_Error_count=0,B3_Error_count=0,B4_Error_count=0,B5_Error_count=0;
-uint16_t C2_Error_count=0,C3_Error_count=0,C4_Error_count=0,C5_Error_count=0;
-uint16_t D0_Error_count=0,D1_Error_count=0,D2_Error_count=0,D3_Error_count=0,D4_Error_count=0,D5_Error_count=0,IN14_Error_count=0,IN15_Error_count=0;
+uint16_t  Repeat_count = 3;
+float32   ADC_error_buffer=0.96;
+uint16_t  S=0,A2=0,A3=0,A4=0,A5=0,B0=0,B2=0,B3=0,B4=0,B5=0,C2=0,C3=0,C4=0,C5=0,D0=0,D1=0,D2=0,D3=0,D4=0,D5=0,IN14=0,IN15=0;
+uint16_t  A2_Error_count=0,A3_Error_count=0,A4_Error_count=0,A5_Error_count=0;
+uint16_t  B0_Error_count=0,B2_Error_count=0,B3_Error_count=0,B4_Error_count=0,B5_Error_count=0;
+uint16_t  C2_Error_count=0,C3_Error_count=0,C4_Error_count=0,C5_Error_count=0;
+uint16_t  D0_Error_count=0,D1_Error_count=0,D2_Error_count=0,D3_Error_count=0,D4_Error_count=0,D5_Error_count=0,IN14_Error_count=0,IN15_Error_count=0;
 
 //-------------------------------------------------------------------------------------------------
 // Global functions
 //-------------------------------------------------------------------------------------------------
 
-//=== Function:  ==========================================================================
+//=== Function: Error_LEDs_Check ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to light-up all Error LEDs connected to GPIOs, one at a time
+///         repeats the process for 3 times
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
-//===========================================================================================================
+//=================================================================================================
 void Error_LEDs_Check(void)
 {
     EALLOW;
@@ -55,15 +60,16 @@ void Error_LEDs_Check(void)
     EDIS;
 }
 
-//=== Function:  ==========================================================================
+//=== Function: PWM_LEDs_Check ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to light-up all PWM LEDs connected to GPIOs, four at a time
+///         repeats the process for 3 times
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
-//===========================================================================================================
+//=================================================================================================
 void PWM_LEDs_Check(void)
 {
     EALLOW;
@@ -80,19 +86,21 @@ void PWM_LEDs_Check(void)
     EDIS;
 }
 
-//=== Function:  ==========================================================================
+//=== Function:GPIOLEDs_Check==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to light-up the First LEDs of all the Group-A to Group-H and followed...
+///         by the next LEDs till the last LEDs of all groups.
+///         repeats the process for 16 times
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
-//===========================================================================================================
+//=================================================================================================
 void GPIOLEDs_Check(void)
 {
     EALLOW;
-    for(uint16_t j = 0; j < 8; j++)
+    for(uint16_t j = 0; j < 16; j++)
     {
         for(uint16_t i = 0; i < 10; i++)
         {
@@ -105,19 +113,23 @@ void GPIOLEDs_Check(void)
     EDIS;
 }
 
-//=== Function:  ==========================================================================
+//=== Function:ADCINs_Check==========================================================================
 ///
-/// @brief Function
+/// @brief  DACs generate a linearly increased analog value which will be read by ADCINs,
+///         if the code detects any error/mismatch in data read by ADCIN to that of DAC generated value,
+///         it will light up the respective Error LED. The ADCIN values are simultaneously sent to ePWMs,
+///         which control the brightness of PWM LEDs, making them gradually brighter.
+///         repeats the process for 3 times
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
-//===========================================================================================================
+//=================================================================================================
 void ADCINs_Check(void)
 {
     EALLOW;
-    for(uint16_t k = 0; k < 2; k++)
+    for(uint16_t k = 0; k < Repeat_count; k++)
     {
         for(uint16_t i = 0; i < 32; i++)
         {
@@ -130,7 +142,7 @@ void ADCINs_Check(void)
                 ADCtoPWM(i);
                 if(j == 1000 || j == 2000 || j == 3000 || j>3932)
                     ADC_ErrorCheck(i);
-                DELAY_US(750);
+                DELAY_US(500);
             }
             ADCtoPWM(32);
             Mux_Select(23);
@@ -139,11 +151,11 @@ void ADCINs_Check(void)
     EDIS;
 }
 
-//=== Function:  ==========================================================================
+//=== Function: Hardware_Error_Detection_Check ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to check the all Hardware Error Detections
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -186,11 +198,11 @@ void Hardware_Error_Detection_Check(void)
     EDIS;
 }
 
-//=== Function:  ==========================================================================
+//=== Function: ADC_ErrorCheck ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to detect errors in ADC results and accordingly indicates error through Error_LEDs
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -288,11 +300,11 @@ void ADC_ErrorCheck(int i)
     }
 }
 
-//=== Function:  ==========================================================================
+//=== Function: Error_LEDs_Off ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to turn-OFF Error_LEDs one at a time
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -334,11 +346,11 @@ void Error_LEDs_Off(int i)
     }
 }
 
-//=== Function:  ==========================================================================
+//=== Function: Error_LEDs_On ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to turn-ON Error_LEDs one at a time
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -380,11 +392,11 @@ void Error_LEDs_On(int i)
     }
 }
 
-//=== Function:  ==========================================================================
+//=== Function: PWM_LEDs_On ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to turn-ON PWM_LEDs four at a time
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -446,11 +458,11 @@ void PWM_LEDs_On(int i)
     }
 }
 
-//=== Function:  ==========================================================================
+//=== Function: PWM_LEDs_Off ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to turn-ON PWM_LEDs four at a time
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -512,11 +524,11 @@ void PWM_LEDs_Off(int i)
     }
 }
 
-//=== Function:  ==========================================================================
+//=== Function: Mux_Select ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to set Mux Select pins for passing DACOUT to ADCIN
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -688,11 +700,11 @@ void Mux_Select(int i)
     }
 }
 
-//=== Function:  ==========================================================================
+//=== Function: ADCtoPWM ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to store the ADC result and also pass it to PWM compares for adjusting brightness of PWM_LEDs
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -857,11 +869,11 @@ void ADCtoPWM(int i)
     }
 }
 
-//=== Function:  ==========================================================================
+//=== Function: GPIOLEDs_On ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to turn-ON all fisrt LEDs in all Groups at a time, followed by second LEDs and so on
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
@@ -975,11 +987,11 @@ void GPIOLEDs_On(int i)
     }
 }
 
-//=== Function:  ==========================================================================
+//=== Function: GPIOLEDs_Off ==========================================================================
 ///
-/// @brief Function
+/// @brief  Function to turn-OFF all fisrt LEDs in all Groups at a time, followed by second LEDs and so on
 ///
-/// @param void
+/// @param  void
 ///
 /// @return void
 ///
