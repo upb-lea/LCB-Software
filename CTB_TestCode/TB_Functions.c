@@ -134,13 +134,13 @@ void ADCINs_Check(void)
         for(uint16_t i = 0; i < 32; i++)
         {
             Mux_Select(i);
-            for(uint16_t j = 0; j<3935; j++)
+            for(uint16_t j = 0; j<3900; j++)
             {
                 DacaRegs.DACVALS.bit.DACVALS = j;
                 DacbRegs.DACVALS.bit.DACVALS = j;
                 DaccRegs.DACVALS.bit.DACVALS = j;
                 ADCtoPWM(i);
-                if(j == 1000 || j == 2000 || j == 3000 || j>3932)
+                if(j == 1000 || j == 2000 || j == 3000 || j>3898)
                     ADC_ErrorCheck(i);
                 DELAY_US(500);
             }
