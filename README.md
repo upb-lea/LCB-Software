@@ -14,12 +14,12 @@ For equal code indentations, perform the following steps:
 This steps are necessary if the original project was developed with different versions for the C2000Ware and compilers. Both steps needs to be done for `RAM` and for `FLASH`. Select between both modes with the arrow at the `hammer`-symbol.
 
 ### Adapt C2000ware version
- * right click on project -> `Preferences` -> `General` -> `Products`
+ * right click on project -> `Properties` -> `General` -> `Products`
  * Select `C2000Ware` and click `Edit`
  * Select your installed C2000Ware version in the right drop-down menu
 
 ### Adapt compiler version
- * right click on project -> `Preferences` -> `General` -> `Projects`
+ * right click on project -> `Properties` -> `General` -> `Projects`
  * Select your installed compiler version 
  
 ## C2000 Dual-Core-Debugging
