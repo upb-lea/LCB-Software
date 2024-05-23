@@ -1,0 +1,13 @@
+"./blank.obj"
+"./f2838x_codestartbranch.obj"
+"./f2838x_globalvariabledefs.obj"
+"./f2838x_usdelay.obj"
+"./main.obj"
+"./myADC.obj"
+"./myDAC.obj"
+"./myDevice.obj"
+"./myGPIO.obj"
+"./myPWM.obj"
+"../2838x_FLASH_lnk_cpu1.cmd"
+"../f2838x_headers_nonBIOS_cpu1.cmd"
+-llibc.a

@@ -1,0 +1,13 @@
+"./TB_ADC.obj"
+"./TB_DAC.obj"
+"./TB_Device.obj"
+"./TB_Functions.obj"
+"./TB_GPIO.obj"
+"./TB_PWM.obj"
+"./f2838x_codestartbranch.obj"
+"./f2838x_globalvariabledefs.obj"
+"./f2838x_usdelay.obj"
+"./main.obj"
+"../2838x_RAM_lnk_cpu1.cmd"
+"../f2838x_headers_nonBIOS_cpu1.cmd"
+-llibc.a
