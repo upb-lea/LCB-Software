@@ -165,30 +165,39 @@ void Hardware_Error_Detection_Check(void)
     EALLOW;
     for(uint16_t i = 0; i < Repeat_count; i++)
     {
-        Mux_Select(0);
+        // Error Latch 1
+        Mux_Select(5);
         DELAY_US(ONTIME);
         GpioDataRegs.GPDCLEAR.bit.GPIO98 = 1;
         DELAY_US(OFFTIME);
         Mux_Select(23);
+        DELAY_US(ONTIME);
 
-        Mux_Select(5);
+        // Error Latch 3
+        Mux_Select(0);
         DELAY_US(ONTIME);
         GpioDataRegs.GPACLEAR.bit.GPIO10 = 1;
         DELAY_US(OFFTIME);
         Mux_Select(23);
+        DELAY_US(ONTIME);
 
-        Mux_Select(11);
+        // Error Latch 2
+        Mux_Select(13);
         DELAY_US(ONTIME);
         GpioDataRegs.GPACLEAR.bit.GPIO11 = 1;
         DELAY_US(OFFTIME);
         Mux_Select(23);
+        DELAY_US(ONTIME);
 
-        Mux_Select(13);
+        // Error Latch 4
+        Mux_Select(11);
         DELAY_US(ONTIME);
         GpioDataRegs.GPDCLEAR.bit.GPIO97 = 1;
         DELAY_US(OFFTIME);
         Mux_Select(23);
-        DELAY_US(OFFTIME);
+        DELAY_US(ONTIME);
+
+        // Set all reset pins again
         GpioDataRegs.GPDSET.bit.GPIO98  = 1;
         GpioDataRegs.GPASET.bit.GPIO10  = 1;
         GpioDataRegs.GPASET.bit.GPIO11  = 1;
