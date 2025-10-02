@@ -16,7 +16,8 @@ This steps are necessary if the original project was developed with different ve
 ### Adapt C2000ware version
  * right click on project -> `Properties` -> `General` -> `Products`
  * Select `C2000Ware` and click `Edit`
- * Select your installed C2000Ware version in the right drop-down menu
+ * Select the installed `C2000Ware` version in the right drop-down menu. This software was tested with `C2000Ware` version `4.3`. Newer versions are currently not working with the provided software.
+ * To install older versions of `C2000Ware`, go to the `ressource explorer` and download version `4.3`.
 
 ### Adapt compiler version
  * right click on project -> `Properties` -> `General` -> `Projects`
